@@ -3,18 +3,21 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        Audi audi = new Audi("Auto", "2020",false, Ability.DRIVE);
+        Shop shop = new Shop("Audi shop", "Bishkek");
+        Shop shop1 = new Shop("Trains", "Novopokrovka");
+        Audi audi = new Audi("Auto",shop, "2020",false);
         audi.printAbilityForType();
         System.out.println(audi.printInfo());
 
-        Audi audi1 = new Audi("Auto Suv", "2015", true, Ability.DRIVE);
-        audi.printAbilityForType();
+        Audi audi1 = new Audi("Auto Suv", shop, "2015", true);
+        audi.printAbilityForType(Ability.DRIVE);
         System.out.println(audi1.printInfo());
 
-        Car train = new Car("Train", Ability.DRIVE);
+        Car train = new Car("Train", shop1);
         train.printAbilityForType();
         System.out.println(train.printInfo());
 
-
+        audi.copy(audi1);
+        System.out.println(audi.printInfo());
     }
 }
